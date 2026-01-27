@@ -1,8 +1,13 @@
 {
+  "version": 2,
   "buildCommand": "cd full_stack_todo_frontend && npm install && npm run build",
   "outputDirectory": "full_stack_todo_frontend/.next",
-  "devCommand": "cd full_stack_todo_frontend && npm run dev",
   "installCommand": "cd full_stack_todo_frontend && npm install",
   "framework": "nextjs",
-  "regions": ["iad1"]
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/full_stack_todo_frontend/$1"
+    }
+  ]
 }
