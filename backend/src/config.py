@@ -37,6 +37,12 @@ class Settings(BaseSettings):
     # Logging
     log_level: str = "info"
 
+    # Groq AI Configuration
+    groq_api_key: str = ""
+    groq_model: str = "llama-3.3-70b-versatile"
+    groq_max_tokens: int = 1024
+    groq_temperature: float = 0.7
+
     model_config = {
         "env_file": ".env",
         "env_file_encoding": "utf-8",

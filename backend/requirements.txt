@@ -27,3 +27,6 @@ passlib[bcrypt]>=1.7.4
 
 # Utilities
 python-multipart>=0.0.6
+
+# AI/LLM
+groq>=0.4.0

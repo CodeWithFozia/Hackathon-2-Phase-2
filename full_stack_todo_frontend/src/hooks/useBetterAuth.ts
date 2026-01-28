@@ -43,7 +43,7 @@ export function useBetterAuth(): AuthContextType {
         throw new Error('Sign in failed - no token received');
       }
     } catch (error: any) {
-      const errorMessage = error.response?.data?.error?.message || error.message || 'Sign in failed';
+      const errorMessage = error.response?.data?.detail?.message || error.response?.data?.message || error.message || 'Sign in failed';
       throw new Error(errorMessage);
     }
   }, [router]);
@@ -63,7 +63,7 @@ export function useBetterAuth(): AuthContextType {
         throw new Error('Sign up failed - no token received');
       }
     } catch (error: any) {
-      const errorMessage = error.response?.data?.error?.message || error.message || 'Sign up failed';
+      const errorMessage = error.response?.data?.detail?.message || error.response?.data?.message || error.message || 'Sign up failed';
       throw new Error(errorMessage);
     }
   }, [router]);

@@ -6,6 +6,7 @@ import React from 'react';
 import { useAuth } from '@/lib/hooks/useAuth';
 import { Button } from '@/components/ui/Button';
 import { RouteGuard } from '@/components/auth/RouteGuard';
+import { ChatWidget } from '@/components/chat/ChatWidget';
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   const { user, signOut } = useAuth();
@@ -41,6 +42,9 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
         <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           {children}
         </main>
+
+        {/* Floating chat widget */}
+        <ChatWidget />
       </div>
     </RouteGuard>
   );

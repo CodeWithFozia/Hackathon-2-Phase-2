@@ -1,12 +1,13 @@
 """Alembic environment configuration."""
 from logging.config import fileConfig
-from sqlalchemy import engine_from_config
+from sqlalchemy import engine_from_config, create_engine
 from sqlalchemy import pool
 from alembic import context
 from sqlmodel import SQLModel
 from src.config import settings
 from src.models.task import Task  # Import all models
 from src.models.user import User  # Import user model for auth
+from src.models.chat import ChatMessage  # Import chat model
 
 # Interpret the config file for Python logging.
 fileConfig("alembic.ini")
@@ -31,11 +32,16 @@ def run_migrations_offline():
 
 def run_migrations_online():
     """Run migrations in 'online' mode."""
-    connectable = engine_from_config(
-        context.config.get_section(context.config.config_ini_section),
-        prefix="sqlalchemy.",
+    # Use database URL from settings instead of alembic.ini
+    # Determine connect_args based on database type
+    connect_args = {}
+    if settings.database_url.startswith("postgresql"):
+        connect_args = {"ssl": "require"}
+
+    connectable = create_engine(
+        settings.database_url,
         poolclass=pool.NullPool,
-        connect_args={"ssl": "require"}
+        connect_args=connect_args
     )
 
     with connectable.connect() as connection:
