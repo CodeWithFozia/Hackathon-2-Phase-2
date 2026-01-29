@@ -1,9 +1,10 @@
 {
-  "version": 2,
-  "buildCommand": "cd full_stack_todo_frontend && npm install && npm run build",
-  "outputDirectory": "full_stack_todo_frontend/.next",
-  "installCommand": "cd full_stack_todo_frontend && npm install",
+  "buildCommand": "npm run build",
+  "devCommand": "npm run dev",
+  "installCommand": "npm install",
   "framework": "nextjs",
+  "outputDirectory": ".next",
+  "rootDirectory": "full_stack_todo_frontend",
   "env": {
     "NEXT_PUBLIC_API_URL": "https://fouziabibi-todo.hf.space"
   },
@@ -11,11 +12,5 @@
     "env": {
       "NEXT_PUBLIC_API_URL": "https://fouziabibi-todo.hf.space"
     }
-  },
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/full_stack_todo_frontend/$1"
-    }
-  ]
+  }
 }
