@@ -4,6 +4,14 @@
   "outputDirectory": "full_stack_todo_frontend/.next",
   "installCommand": "cd full_stack_todo_frontend && npm install",
   "framework": "nextjs",
+  "env": {
+    "NEXT_PUBLIC_API_URL": "https://fouziabibi-todo.hf.space"
+  },
+  "build": {
+    "env": {
+      "NEXT_PUBLIC_API_URL": "https://fouziabibi-todo.hf.space"
+    }
+  },
   "rewrites": [
     {
       "source": "/(.*)",
